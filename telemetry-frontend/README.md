@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# Telemetry Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React + Vite frontend for the Telemetry API. It fetches telemetry data from the backend and provides a simple UI to browse devices and view recent telemetry points.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Vite + React for fast development
+- Simple device list and live updates
+- Uses the API helper functions [`fetchMachines`](telemetry-frontend/src/api.js), [`fetchRange`](telemetry-frontend/src/api.js) and [`fetchLatest`](telemetry-frontend/src/api.js)
+- Components: main app at [`src/App.tsx`](telemetry-frontend/src/App.tsx) and [`src/components/DeviceList.jsx`](telemetry-frontend/src/components/DeviceList.jsx)
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 18+
+- npm or yarn
+- Running backend Telemetry API (see [`TelemetryApi/TelemetryApi.csproj`](TelemetryApi/TelemetryApi.csproj) and [`TelemetryApi/Program.cs`](TelemetryApi/Program.cs))
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Quick start
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. Install dependencies
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   cd telemetry-frontend
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Run dev server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```bash
+   npm run dev
+   ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   App opens at http://localhost:5173 (see [index.html](http://_vscodecontentref_/0)).
+
+3. Build for production
+   ```bash
+   npm run build
+   npm run preview
+   ```
+
+## Configuration
+
+- Backend base URL is set in [api.js](http://_vscodecontentref_/1) via the [API_BASE](http://_vscodecontentref_/2) constant. Update it if the API runs on a different host or port.
+
+## Project structure (key files)
+
+- [package.json](http://_vscodecontentref_/3) — scripts and dependencies
+- [vite.config.ts](http://_vscodecontentref_/4) — Vite config
+- [index.html](http://_vscodecontentref_/5) — app entry
+- [main.tsx](http://_vscodecontentref_/6) — React entry
+- [App.tsx](http://_vscodecontentref_/7) — main app logic
+- [api.js](http://_vscodecontentref_/8) — API helpers ([fetchMachines](http://_vscodecontentref_/9), [fetchRange](http://_vscodecontentref_/10), [fetchLatest](http://_vscodecontentref_/11))
+- [DeviceList.jsx](http://_vscodecontentref_/12) — device list component
+
+## How it talks to the backend
+
+The frontend calls endpoints under `/api/v1/telemetry` exposed by the Telemetry API. The backend implementation lives in this workspace at [TelemetryController.cs](http://_vscodecontentref_/13) and the project file is [TelemetryApi.csproj](http://_vscodecontentref_/14).
+
+Useful backend files:
+
+- [TelemetryController.cs](http://_vscodecontentref_/15) — POST and GET endpoints used by the frontend
+- [Program.cs](http://_vscodecontentref_/16) — app startup
+
+## Notes
+
+- Device simulator: [simulate_device.ps1](http://_vscodecontentref_/17) posts sample telemetry to the API.
+- If you run Docker compose, see [docker-compose.yml](http://_vscodecontentref_/18) at the repository root.
+
+## Contributing
+
+Open issues or PRs. Keep changes small and run the dev server locally to verify behavior.
+
+## License
+
+See repository root README or license
