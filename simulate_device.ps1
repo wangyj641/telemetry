@@ -1,4 +1,4 @@
-$api = "http://localhost:5000/api/v1/telemetry"
+$api = "http://localhost:5069/api/v1/telemetry"
 $machines = @("M-1001","M-1002","M-1003")
 while ($true) {
   foreach ($m in $machines) {

@@ -23,6 +23,7 @@ public class TelemetryController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] TelemetryDto dto)
     {
+        Console.WriteLine("------------------ post a data ------------------");
         if (dto == null || string.IsNullOrWhiteSpace(dto.MachineId))
             return BadRequest("Invalid payload");
 
@@ -68,6 +69,7 @@ public class TelemetryController : ControllerBase
     [HttpGet("machines")]
     public async Task<IActionResult> GetMachines()
     {
+        Console.WriteLine("------------------ get all data ------------------");
         using var conn = CreateConnection();
         var sql = "SELECT DISTINCT machine_id FROM telemetry ORDER BY machine_id";
         var rows = await conn.QueryAsync<string>(sql);

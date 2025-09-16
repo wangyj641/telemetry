@@ -1,6 +1,7 @@
-export const API_BASE = "http://localhost:5000";
+export const API_BASE = "http://localhost:5069";
 
 export async function fetchMachines() {
+  console.log("---------------------- fetchMachines --------------------");
   const res = await fetch(`${API_BASE}/api/v1/telemetry/machines`);
   return res.json();
 }

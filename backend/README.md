@@ -1,4 +1,4 @@
-# TelemetryApi
+# Backend
 
 A small .NET Web API that receives, stores and serves telemetry data for demo and local development purposes. Intended to be run alongside the telemetry-frontend in this repository.
 
@@ -33,7 +33,7 @@ PGPASSWORD=demo psql -h localhost -U demo -d telemetrydb -f init.sql
 1. Restore and run the API
 
    ```powershell
-   cd TelemetryApi
+   cd backend
    dotnet restore
    dotnet run
    ```

@@ -1,4 +1,4 @@
-# Telemetry Frontend
+# Frontend
 
 A small React + Vite frontend for the Telemetry API. It fetches telemetry data from the backend and provides a simple UI to browse devices and view recent telemetry points.
 
@@ -20,7 +20,7 @@ A small React + Vite frontend for the Telemetry API. It fetches telemetry data f
 1. Install dependencies
 
    ```bash
-   cd telemetry-frontend
+   cd frontend
    npm install
    ```
 

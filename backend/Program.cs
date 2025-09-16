@@ -1,5 +1,18 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// Add CORS policy (allow your frontend origin)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocal", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")   // <-- 前端地址
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+        // .AllowCredentials(); // 如果需要支持 cookie / 跨域凭证，解除注释
+    });
+});
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -15,6 +28,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Use CORS policy
+app.UseCors("AllowLocal");
 
 app.UseHttpsRedirection();
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchMachines, fetchRange, fetchLatest } from "./api";
-
+import TelemetryMap from "./components/TelemetryMap";
+import TelemetryChart from "./components/TelemetryChart";
 import DeviceList from "./components/DeviceList";
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
   useEffect(() => {
     if (!selected) return;
     const to = new Date();
-    const from = new Date(to.getTime() - 1000 * 60 * 60); // 最近 1 小时
+    const from = new Date(to.getTime() - 1000 * 60 * 60); // last 60 minutes
     (async () => {
       const data = await fetchRange(
         selected,
@@ -41,7 +42,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="header">Telemetry Dashboard</header>
+      <header className="header">Vaderstad Telemetry Dashboard</header>
       <div className="layout">
         <aside className="sidebar">
           <DeviceList
@@ -50,6 +51,15 @@ export default function App() {
             onSelect={setSelected}
           />
         </aside>
+
+        <main className="main">
+          <div className="mapWrap">
+            <TelemetryMap points={points} />
+          </div>
+          <div className="chartWrap">
+            <TelemetryChart points={points} />
+          </div>
+        </main>
       </div>
     </div>
   );
