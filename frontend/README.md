@@ -42,11 +42,3 @@ Useful backend files:
 
 - Device simulator: [simulate_device.ps1](http://_vscodecontentref_/17) posts sample telemetry to the API.
 - If you run Docker compose, see [docker-compose.yml](http://_vscodecontentref_/18) at the repository root.
-
-## Contributing
-
-Open issues or PRs. Keep changes small and run the dev server locally to verify behavior.
-
-## License
-
-See repository root README or license
