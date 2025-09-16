@@ -1,5 +1,5 @@
 $api = "http://localhost:5069/api/v1/telemetry"
-$machines = @("M-1001","M-1002","M-1003")
+$machines = @("M-1001","M-1002","M-1003", "M-1004","M-1005")
 while ($true) {
   foreach ($m in $machines) {
     $lat = 49.5 + (Get-Random) * 1.0
