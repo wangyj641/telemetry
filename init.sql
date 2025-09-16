@@ -1,4 +1,4 @@
-CREATE EXTENSION IF NOT EXISTS "pgcrypto"; -- 如果需要 gen_random_uuid()
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 CREATE TABLE IF NOT EXISTS telemetry (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   machine_id varchar(64) NOT NULL,

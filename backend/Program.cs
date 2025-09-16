@@ -5,7 +5,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocal", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")   // <-- 前端地址
+        policy.WithOrigins("http://localhost:5173")   
               .AllowAnyHeader()
               .AllowAnyMethod();
         // .AllowCredentials(); // 如果需要支持 cookie / 跨域凭证，解除注释

@@ -1,6 +1,6 @@
 # Backend
 
-A small .NET Web API that receives, stores and serves telemetry data for demo and local development purposes. Intended to be run alongside the telemetry-frontend in this repository.
+A small ASP.NET Web API that receives, stores and serves telemetry data for demo and local development purposes. Intended to be run alongside the frontend in this repository.
 
 ## Features
 
@@ -8,6 +8,7 @@ A small .NET Web API that receives, stores and serves telemetry data for demo an
 - Simple in-memory/store-backed storage (see project code)
 - Example controller: TelemetryController (POST telemetry, GET latest/range)
 - OpenAPI/Swagger support (if enabled in Program.cs)
+- PostgreSQL for telemetry data management
 
 ## Prerequisites
 
