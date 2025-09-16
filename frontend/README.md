@@ -15,29 +15,6 @@ A small React + Vite frontend for the Telemetry API. It fetches telemetry data f
 - npm or yarn
 - Running backend Telemetry API (see [`TelemetryApi/TelemetryApi.csproj`](TelemetryApi/TelemetryApi.csproj) and [`TelemetryApi/Program.cs`](TelemetryApi/Program.cs))
 
-## Quick start
-
-1. Install dependencies
-
-   ```bash
-   cd frontend
-   npm install
-   ```
-
-2. Run dev server
-
-   ```bash
-   npm run dev
-   ```
-
-   App opens at http://localhost:5173 (see [index.html](http://_vscodecontentref_/0)).
-
-3. Build for production
-   ```bash
-   npm run build
-   npm run preview
-   ```
-
 ## Configuration
 
 - Backend base URL is set in [api.js](http://_vscodecontentref_/1) via the [API_BASE](http://_vscodecontentref_/2) constant. Update it if the API runs on a different host or port.
