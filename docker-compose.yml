@@ -18,7 +18,7 @@ services:
       retries: 10
 
   api:
-    build: ./TelemetryApi
+    build: ./backend
     depends_on:
       db:
         condition: service_healthy
